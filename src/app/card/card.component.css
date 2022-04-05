@@ -1,0 +1,45 @@
+button {
+    margin: 0 5px;
+}
+
+.card {
+    padding: .5rem 1rem;
+    border: 1px dashed orange;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    margin-bottom: .5rem;
+}
+
+img {
+    width: 50%;
+}
+
+.container {
+    display: flex;
+}
+
+.text {
+    font-size: 1.5rem;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.blue {
+    color: blue;
+}
+
+.h2 {
+    font-size: 1rem;
+}
+
+.h3 {
+    font-size: .6rem;
+}

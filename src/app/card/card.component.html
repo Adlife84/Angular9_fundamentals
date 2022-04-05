@@ -1,0 +1,79 @@
+<div class="card">
+    <h2 [ngStyle]="{
+        color: card.title.length > 15 ? 'red' : 'orange',
+        fontWeight: card.title.length < 10 ? 'normal' : 'bold' 
+    }">{{ index }} {{ card.title }}</h2>
+
+    <!-- <p class="text" [ngClass]="{
+        blue: textColor === 'blue',
+        green: textColor === 'green',
+        red: textColor === 'red'
+    }">{{ card.text }}</p>
+     -->
+
+    <p class="text"
+        [class.h2]="textColor === 'h2'"
+        [class.h3]="textColor === 'h3'"
+
+        [class.blue]="textColor === 'blue'"
+        [class.green]="textColor === 'green'"
+        [class.red]="textColor === 'red'"
+    >{{ text }}</p>
+    <p>{{ getInfo()}}</p>
+
+    <div>
+        <img [src]="imgUrl">
+        <br>
+        <button [disabled]="disabled">Enable</button>
+    </div>
+    <br>
+    <div>
+        <button (click)="textColor = 'h2'">Set h2</button>
+        <button (click)="textColor = 'h3'">Set h3</button>
+    </div>
+    <br>
+    <div>
+        <button (click)="textColor = 'blue'">Set blue text</button>
+        <button (click)="textColor = 'green'">Set green text</button>
+        <button (click)="textColor = 'red'">Set red text</button>
+    </div>
+    <br>
+    <div>
+        <button (click)="changeTitle()">Change title</button>
+        <button (click)="card.title = 'Inline title'">Change title inline</button>
+        
+    </div>
+    <br>
+    <div>
+        <button (click)="imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'">React</button>
+        <button (click)="imgUrl = 'https://angular.io/assets/images/logos/angular/angular.svg'">Angular</button>
+    </div>
+
+    <div class="container">
+        
+        <div>
+            <!-- Using binding by native JS event -->
+            <p>Bind JS event</p>
+            <input type="text" (input)="inputHandler($event)" [value]="card.title">
+        </div>
+        <div>
+            <!-- Using binding by link #myInput -->
+            <p>Bind using #Link</p>
+            <input type="text" #myInput (input)="inputHandlerByLink(myInput.value)" [value]="card.title">
+        </div>
+       <div>
+            <p>Bind using bgModel</p>
+            <!-- Using functional from Angular FormsModule ngModule -->
+            <input type="text" [(ngModel)]="text" (ngModelChange)="changeHandler()">
+       </div>
+     
+    </div>
+    <br>
+    <div>
+        <em>{{ cardDate | date: 'MMMM dd yyyy hh:mm:ss' }}</em>
+    </div>
+
+    <!-- <strong>Number: {{ number }}</strong>
+    <em>{{ array }}</em>
+    <pre>{{obj | json}}</pre> -->
+</div>
